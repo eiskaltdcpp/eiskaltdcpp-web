@@ -37,7 +37,7 @@ See [INSTALL](./INSTALL) file.
 * If you need to add extra library, then:
   * check the license of that library very carefully
   * check if that library is actively maintained (for fixing possible bugs in it)
-  * copy *only* source version of javascript file into this repo (if you prefer using of minified versions of javascript files, you may generate them automatically during Web UI installation)
+  * copy only **source version** of javascript file into this repo (if you prefer using of minified versions of javascript files, you may generate them automatically during Web UI installation)
 
 ### Change Log
 
