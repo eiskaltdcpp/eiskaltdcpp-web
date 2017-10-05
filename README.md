@@ -31,6 +31,14 @@ Some files are distributed under other licenses, see [copyrights](full.copyright
 
 See [INSTALL](./INSTALL) file.
 
+### Contribution
+
+* Patches are welcome!
+* If you need to add extra library, then:
+  * check the license of that library very carefully
+  * check if that library is actively maintained (for fixing possible bugs in it)
+  * copy *only* source version of javascript file into this repo (if you prefer using of minified versions of javascript files, you may generate them automatically during Web UI installation)
+
 ### Change Log
 
 * 2.4.0 (2017-xx-xx):
