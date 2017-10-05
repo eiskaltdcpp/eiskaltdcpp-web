@@ -1,0 +1,23 @@
+1) Clone eiskaltdcpp-web into any directory. For example:
+
+$ cd /home/pi/
+$ git clone https://github.com/eiskaltdcpp/eiskaltdcpp-web
+
+2) Install any web-server wich you like and configure it. For example:
+
+$ sudo nano /etc/nginx/sites-enabled/default
+
+Content may look like this:
+
+server {
+    listen   80 default;
+    listen   [::]:80 default;
+
+    location / {
+        root /home/pi/eiskaltdcpp-web;
+        index  index.html;
+    }
+}
+
+3) Now EiskaltDC++ Web UI should be reachable at: http://<ip>/
+
