@@ -1,7 +1,40 @@
+### Local usage ###
+
 1) Clone eiskaltdcpp-web into any directory. For example:
 
-$ cd /home/pi/
+$ cd /home/user/
 $ git clone https://github.com/eiskaltdcpp/eiskaltdcpp-web
+
+2) Edit config.js file. For example:
+
+$ cd /home/user/eiskaltdcpp-web/
+$ nano config.js
+
+Here your should set the IP address of remote computer where eiskaltdcpp-daemon
+is launched. Related string will look like this:
+
+            "host" : "192.168.0.132",
+
+3) Open index.html file in any modern web browser which you like. For example,
+   in Mozilla Firefox or Google Chrome.
+
+
+### Remote usage ###
+
+1) Clone eiskaltdcpp-web into any directory. For example:
+
+$ git clone https://github.com/eiskaltdcpp/eiskaltdcpp-web
+$ sudo mv eiskaltdcpp-web /usr/share/
+
+2) Edit config.js file. For example:
+
+$ cd /usr/share/eiskaltdcpp-web/
+$ sudo nano config.js
+
+Here your should set the IP address of remote computer where eiskaltdcpp-daemon
+is launched. Related string will look like this:
+
+            "host" : "192.168.0.132",
 
 2) Install any web-server wich you like and configure it. For example:
 
@@ -14,10 +47,12 @@ server {
     listen   [::]:80 default;
 
     location / {
-        root /home/pi/eiskaltdcpp-web;
-        index  index.html;
+        root /usr/share/eiskaltdcpp-web;
+        index index.html;
     }
 }
 
-3) Now EiskaltDC++ Web UI should be reachable at: http://<ip>/
+$ sudo systemctl restart nginx.service 
+
+3) Now EiskaltDC++ Web UI should be reachable at: http://192.168.0.132/
 
