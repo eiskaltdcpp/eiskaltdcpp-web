@@ -41,5 +41,6 @@ See [INSTALL](./INSTALL) file.
 
 ### Change Log
 
-* 2.4.0 (2017-xx-xx):
-  * First stable release (version number is bound to eiskaltdcpp-daemon version).
+* 1.0 (2017-xx-xx):
+  * First stable release.
+  * Compatible with eiskaltdcpp-daemon 2.4.0.
