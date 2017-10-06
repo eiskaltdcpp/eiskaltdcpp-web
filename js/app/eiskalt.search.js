@@ -137,8 +137,7 @@ define(
                 my.clearSearchResults();
                 $.jsonRPC.request('search.send', {
                     params : {
-                        'searchstring': $('input#searchstring').val(),
-                        'searchtype': $('#searchtype option:selected').val()
+                        'searchstring': $('input#searchstring').val()
                     },
                     success : my.onSearchSendSuccess,
                     error : eiskalt.debug.onError
