@@ -137,7 +137,8 @@ define(
                 my.clearSearchResults();
                 $.jsonRPC.request('search.send', {
                     params : {
-                        'searchstring': $('input#searchstring').val()
+                        'searchstring': $('input#searchstring').val(),
+                        'searchtype': Number($('#searchtype option:selected').val())
                     },
                     success : my.onSearchSendSuccess,
                     error : eiskalt.debug.onError
@@ -147,13 +148,21 @@ define(
             onDownloadClicked: function () {
                 // add file to the download queue
                 $.jsonRPC.request('queue.add', {
-                    params : {'filename': $(this).attr('filename'), 'size': $(this).attr('size'), 'tth': $(this).attr('tth'), 'directory': ''},
+                    params : {
+                        'filename': $(this).attr('filename'),
+                        'size': Number($(this).attr('size')),
+                        'tth': $(this).attr('tth'),
+                        'directory': ''
+                    },
                     error : eiskalt.debug.onError
                 });
                 // start TTH search for the newly added file to get download sources
                 $('input#searchstring').timer('stop');
                 $.jsonRPC.request('search.send', {
-                    params : {'searchstring': $(this).attr('tth'), 'searchtype': my.searchTypes.TTH},
+                    params : {
+                        'searchstring': $(this).attr('tth'),
+                        'searchtype': Number(my.searchTypes.TTH)
+                    },
                     error : eiskalt.debug.onError
                 });
             },
