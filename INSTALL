@@ -54,5 +54,7 @@ server {
 
 $ sudo systemctl restart nginx.service 
 
-3) Now EiskaltDC++ Web UI should be reachable at: http://192.168.0.132/
-
+3) Now EiskaltDC++ Web UI should be reachable at: http://<ip>/
+   If you use the same remote computer for eiskaltdcpp-web and for
+   eiskaltdcpp-daemon, in our example above it will be: http://192.168.0.132/
+   
