@@ -43,4 +43,4 @@ See [INSTALL](./INSTALL) file.
 
 * 1.0 (2017-xx-xx):
   * First stable release.
-  * Compatible with eiskaltdcpp-daemon 2.4.0.
+  * Compatible with eiskaltdcpp-daemon 2.2.9.

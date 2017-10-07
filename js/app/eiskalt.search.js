@@ -1,4 +1,5 @@
 /* Copyright (c) 2013 Dorian Scholz */
+/* Copyright (c) 2017 Boris Pek */
 /* License: GPLv3 or later */
 /*jslint browser: true */
 /*global define */
