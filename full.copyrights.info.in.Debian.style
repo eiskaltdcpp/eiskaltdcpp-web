@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: EiskaltDC++ Web UI
 Upstream-Contact: Dorian Scholz <DorianScholz@gmx.de>
                   Boris Pek <tehnick-8@yandex.ru>
@@ -7,6 +7,108 @@ Source: https://github.com/eiskaltdcpp/eiskaltdcpp-web
 Files: *
 Copyright: 2013 Dorian Scholz (https://github.com/DorianScholz)
            2013-2017 Boris Pek <tehnick-8@yandex.ru>
+License: GPL-3+
+
+Files: images/*
+Copyright: 2010 Oxygen icons theme team (see http://www.oxygen-icons.org/)
+License: LGPL-3
+
+Files: get-js-dependecies.sh
+Copyright: not-applicable
+Comment: Author: 2013-2017 Boris Pek <tehnick-8@yandex.ru>
+License: public-domain
+
+Files: js/lib/require.js
+Copyright: 2010-2017 jQuery Foundation and other contributors
+License: Expat
+
+Files: js/lib/jquery.timer.js
+       js/lib/jquery.plugin.js
+Copyright: 2011 Cyntax Technologies (http://cyntaxtech.com)
+Comment: https://web.archive.org/web/http://code.cyntaxtech.com:80/licenses/cyntax-open-technology
+License: Cyntax-Open-Technology-License
+
+Files: js/lib/jquery.tablesorter.js
+Copyright: 2007 Christian Bach
+License: Expat or GPL-3+
+
+Files: js/lib/jquery.jsonrpc.js
+Copyright: not-applicable
+Comment: https://github.com/datagraph/jquery-jsonrpc/blob/master/UNLICENSE
+License: public-domain
+
+Files: js/lib/jquery.js
+Copyright: 2006-2016 jQuery Foundation and other contributors
+Comment: http://jquery.org/license
+License: Expat
+
+Files: js/lib/jquery.hashchange.js
+Copyright: 2010 "Cowboy" Ben Alman
+Comment: http://benalman.com/about/license/
+License: Expat or GPL-2
+
+Files: js/lib/jquery.easytabs.js
+Copyright: 2010-2011 Steve Schwartz (JangoSteve)
+License: Expat or GPL-3+
+
+License: public-domain
+ No license required for any purpose; the work is not subject to copyright
+ in any jurisdiction.
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+
+License: Cyntax-Open-Technology-License
+ Permission is hereby granted, to any person obtaining a copy of this software
+ and associated documentation files (the "Software"), to deal in the Software
+ without restriction, including without limitation the rights to use, copy,
+ modify, merge, publish and distribute free of charge, and to permit persons
+ to whom the Software is furnished to do so, subject to the following
+ conditions:
+ .
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE. 
+
+License: GPL-2
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
+
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify it under
  the terms of the GNU General Public License as published by the Free Software
@@ -23,8 +125,6 @@ License: GPL-3+
  On Debian systems, the complete text of the GNU General Public License
  can be found in `/usr/share/common-licenses/GPL-3'.
 
-Files: images/*
-Copyright: 2010 Oxygen icons theme team (see http://www.oxygen-icons.org/)
 License: LGPL-3
  This program is free software: you can redistribute it and/or modify it under
  the terms of the GNU Lesser General Public License as published by the Free
@@ -39,11 +139,4 @@ License: LGPL-3
  .
  On Debian systems, the complete text of the GNU Lesser General Public License
  can be found in `/usr/share/common-licenses/LGPL-3'.
-
-Files: get-jquery-scripts
-Copyright: not-applicable
-Comment: 2013-2017 Boris Pek <tehnick-8@yandex.ru>
-License: public-domain
- No license required for any purpose; the work is not subject to copyright
- in any jurisdiction.
 
