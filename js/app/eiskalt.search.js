@@ -50,23 +50,31 @@ define(
                 }
             },
 
-            getUserLinks: function (result) {
-                var userlinks = '', re = new RegExp(/%\w+%/gi), matches;
-                if (config.hasOwnProperty('userlinks')) {
-                    $.each(config.userlinks, function (key, data) {
-                        userlinks += '<a target="_blank" href="' + data.url + '"><img src="' + data.icon + '">';
-                        if (!data.filter) {
-                            data.filter = function (text) { return text; };
-                        }
-                        matches = userlinks.match(re);
-                        if (matches !== null) {
-                            $.each(matches, function (index, match) {
-                                userlinks = userlinks.replace(match, data.filter(result[match.replace(/%/g, '')]));
-                            });
-                        }
+            getUserLink: function (result) {
+                var image, url, userlink;
+                image = 'images/web_search.png';
+                url = 'https://duckduckgo.com/?q=%Filename%';
+                userlink = '<a target="_blank" href="' + url + '"><img src="' + image + '">';
+                var filter, re, matches;
+                filter = function (text) {
+                    return text.replace(/\.\w{2,}$/, '').replace(/[-._+]/g, ' ').replace(/\(.*\)/g, ' ').replace(/\[.*\]/g, ' ').replace(/\d{3,}.*/, '');
+                }
+                re = new RegExp(/%\w+%/gi);
+                matches = userlink.match(re);
+                if (matches !== null) {
+                    $.each(matches, function (index, match) {
+                        userlink = userlink.replace(match, filter(result[match.replace(/%/g, '')]));
                     });
                 }
-                return userlinks;
+                return userlink;
+            },
+
+            getMagnetLink: function (result) {
+                var image, url, magnetlink;
+                image = 'images/magnet.png';
+                url = 'magnet:?xt=urn:tree:tiger:' + result.TTH + '&xl=' + result['Real Size'] + '&dn=' + encodeURI(result.Filename);
+                magnetlink = '<a target="_blank" href="' + url + '"><img src="' + image + '">';
+                return magnetlink;
             },
 
             addSearchResult: function (result) {
@@ -85,7 +93,8 @@ define(
                     removeLink.on('click', eiskalt.queue.onRemoveClicked);
                     removeLink.hide();
 
-                    result.UserLinks = my.getUserLinks(result);
+                    result.UserLink = my.getUserLink(result);
+                    result.MagnetLink = my.getMagnetLink(result);
                     result.DownloadLink = downloadLink.add(removeLink);
 
                     headers = table.find('th');
@@ -176,10 +185,6 @@ define(
                         $('<option></option>').val(typeval).html(typename)
                     );
                 });
-
-                if (!config.hasOwnProperty('userlinks') || config.userlinks.length === 0) {
-                    $('#userlinks').remove();
-                }
 
                 // init table sorting and set initial sorting column by key
                 $('table#searchresults').tablesorter();

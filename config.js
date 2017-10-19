@@ -6,15 +6,6 @@ define([], function () {
             "host" : "", // if empty it defaults to the host serving the script and falls back to localhost
             "port" : "3121"
         },
-        "debugLevel" : 3,
-        "userlinks": {
-            "google": {
-                "icon":  "https://www.google.com/favicon.ico",
-                "url":  "https://www.google.com/search?q=%Filename%",
-                "filter": function (text) {
-                    return text.replace(/\.\w{2,}$/, '').replace(/[-._+]/g, ' ').replace(/\(.*\)/g, ' ').replace(/\[.*\]/g, ' ').replace(/\d{3,}.*/, '');
-                }
-            }
-        }
+        "debugLevel" : 3
     };
 });

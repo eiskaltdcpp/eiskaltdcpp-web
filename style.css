@@ -182,10 +182,10 @@ table td img
     background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
 }
 
-table#searchresults td:nth-child(5), table#downloadqueue td:nth-child(2) {
+table#searchresults td:nth-child(6), table#downloadqueue td:nth-child(3) {
    text-align: left;
 }
 
-table#searchresults td:nth-child(4), table#downloadqueue td:nth-child(3) {
+table#searchresults td:nth-child(5), table#downloadqueue td:nth-child(4) {
    text-align: right;
 }
