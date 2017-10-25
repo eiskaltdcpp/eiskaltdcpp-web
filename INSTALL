@@ -1,7 +1,17 @@
 ### Local usage ###
 
 1) Make sure that eiskaltdcpp-daemon is built with JSON-RPC support
-   (see-DJSONRPC_DAEMON=ON configuration option).
+   (see -DJSONRPC_DAEMON=ON configuration option).
+
+Then check that you launch daemon on correct network interface. For example:
+
+$ eiskaltdcpp-daemon -L 192.168.0.132 -d
+
+Or, if you want to use all available interfaces:
+
+$ eiskaltdcpp-daemon -L 0.0.0.0 -d
+
+But this is less secure.
 
 2) Clone eiskaltdcpp-web into any directory. For example:
 
@@ -25,7 +35,17 @@ is launched. Related string will look like this:
 ### Remote usage ###
 
 1) Make sure that eiskaltdcpp-daemon is built with JSON-RPC support
-   (see-DJSONRPC_DAEMON=ON configuration option).
+   (see -DJSONRPC_DAEMON=ON configuration option).
+
+Then check that you launch daemon on correct network interface. For example:
+
+$ eiskaltdcpp-daemon -L 192.168.0.132 -d
+
+Or, if you want to use all available interfaces:
+
+$ eiskaltdcpp-daemon -L 0.0.0.0 -d
+
+But this is less secure.
 
 2) Clone eiskaltdcpp-web into any directory. For example:
 
@@ -42,7 +62,7 @@ is launched. Related string will look like this:
 
             "host" : "192.168.0.132",
 
-4) Install any web-server wich you like and configure it. For example:
+4) Install any web-server which you like and configure it. For example:
 
 $ sudo nano /etc/nginx/sites-enabled/default
 
