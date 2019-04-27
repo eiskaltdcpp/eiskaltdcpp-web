@@ -3,7 +3,7 @@ define([], function () {
     'use strict';
     return {
         "jsonrpc" : {
-            "host" : "localhost",
+            "host" : "127.0.0.1",
             "port" : "3121"
         },
         "debugLevel" : 3
