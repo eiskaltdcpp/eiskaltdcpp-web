@@ -28,9 +28,11 @@ Some files are distributed under other licenses, see [copyrights](https://github
     <img src="https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-web_status.png" width="99%">
 </a>
 
-## Installation
+## Installation and usage
 
-See [INSTALL](https://github.com/eiskaltdcpp/eiskaltdcpp-web/blob/master/INSTALL) file.
+See [INSTALL](https://github.com/eiskaltdcpp/eiskaltdcpp-web/blob/master/INSTALL) file is you are GNU/Linux or *BSD user.
+
+For MS Windows users it is enough to read [help](https://github.com/eiskaltdcpp/eiskaltdcpp-web/blob/master/windows/help.md) file for understanding how to use Web UI. All necessary files are already included in installer and in archive with portable build.
 
 ## Contribution
 
