@@ -1,0 +1,65 @@
+<h1>EiskaltDC++ Web UI &ndash; Help for MS Windows users</h1>
+
+<h2>Local usage of Web UI</h2>
+
+<p>Open <code>index.html</code> file in any modern web browser which you like. For example, in Mozilla Firefox or Google Chrome.</p>
+
+<p>Depending on your use case Web UI may need some configuration, see below.</p>
+
+<h3>Example of launching daemon on local network interface</h3>
+
+<p>If you do not want to control <code>eiskaltdcpp-daemon</code> from remote PC and would like to be sure that remote control is disabled you should launch <code>eiskaltdcpp-daemon</code> like this:</p>
+
+<p><code>
+eiskaltdcpp-daemon.exe -L 127.0.0.1 -d
+</code></p>
+
+<p>In this case Web UI do not need extra configuration and you may use it as is.</p>
+
+<h3>Example of launching daemon on specific network interface</h3>
+
+<p>If you set external IP address in command-line options of <code>eiskaltdcpp-daemon</code> like this:</p>
+
+<p><code>
+eiskaltdcpp-daemon.exe -L 192.168.0.132 -d
+</code></p>
+
+<p>than connections to <code>eiskaltdcpp-daemon</code> will be possible only via <code>192.168.0.132</code> IP address.</p>
+
+<p>In this case connections via <code>127.0.0.1</code> will not work you should edit Web UI configuration file <code>config.js</code> in any modern text editor (for example, in <code>Notepad++</code>). Find value of <code>host</code> variable and change this string to something like this:</p>
+
+<p><code>
+            "host" : "192.168.0.132",
+</code></p>
+
+<p>Of course IP address will be different in your case. After saving of config file do not forget to reload page with Web UI in your web browser.</p>
+
+<h3>Example of launching daemon on all available network interfaces</h3>
+
+<p>In this case launching command should look like this:</p>
+
+<p><code>
+eiskaltdcpp-daemon.exe -L 0.0.0.0 -d
+</code></p>
+
+<p>This is the less secure way of lauching <code>eiskaltdcpp-daemon</code>, becase it may be controlled from remote PC in your local network (or even from remote PC via Internet if you connected to Internet directly and have white IPv4 address) without notifying you.</p>
+
+<h2>Remote usage of Web UI</h2>
+
+<p>You have to Google how to setup and configure web server in your system.</p>
+
+<p>For example related part <code>nginx</code> config may look like this:</p>
+
+<p><pre><code>
+server {
+    listen   80 default;
+    listen   [::]:80 default;
+
+    location / {
+        root C:/eiskaltdcpp/web-ui;
+        index index.html;
+    }
+}
+</code></pre></p>
+
+<p>Using IP address from example above Web UI should be available at: http://192.168.0.132/</p>
