@@ -1,0 +1,115 @@
+#!/bin/sh
+
+# Author:  Boris Pek <tehnick-8@yandex.ru>
+# License: Public Domain
+# Created: 2019-05-30
+# Updated: 2019-05-30
+# Version: N/A
+#
+# Dependencies: xdg-open
+
+set -e
+
+BIN_DIR="$(dirname ${0})"
+DEST_DIR="${HOME}/.local/share/eiskaltdc++/web"
+
+TEST_DIRS=" \
+    /usr/local/share/eiskaltdcpp/web \
+    /usr/share/eiskaltdcpp/web \
+    ${BIN_DIR}/../share/eiskaltdcpp/web \
+    "
+
+CONFIG="config.js"
+SRC_FILES="index.html style.css favicon.ico"
+SRC_DIRS="images js"
+
+export SRC_DIR=""
+
+FindSourceDirectory()
+{
+    for DIR in ${TEST_DIRS}
+    do
+        if [ -e "${DIR}/index.html" ]
+        then
+            export SRC_DIR="${DIR}"
+            return 0
+        fi
+    done
+}
+
+ShowError()
+{
+    if [ -z "${1}" ]
+    then
+        echo "EiskaltDC++ Web UI is not found in your system!"
+    else
+        echo "${1}"
+    fi
+    exit 1
+}
+
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]
+then
+    echo "Usage:
+  $(basename ${0}) <Key>
+
+EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocols.
+
+Keys:
+  -h, --help     Show this message"
+    exit 0
+fi
+
+mkdir -p "${DEST_DIR}"
+
+if [ ! -e "${DEST_DIR}/${CONFIG}" ]
+then
+    [ -z "${SRC_DIR}" ] && FindSourceDirectory
+    [ -z "${SRC_DIR}" ] && ShowError
+
+    [ ! -e "${SRC_DIR}/${CONFIG}" ] && \
+        ShowError "File \"${SRC_DIR}/${CONFIG}\" does not exist!"
+
+    cp -L "${SRC_DIR}/${CONFIG}" "${DEST_DIR}/${CONFIG}"
+fi
+
+for FILE in ${SRC_FILES}
+do
+    if [ ! -e "${DEST_DIR}/${FILE}" ]
+    then
+        [ -z "${SRC_DIR}" ] && FindSourceDirectory
+        [ -z "${SRC_DIR}" ] && ShowError
+
+        [ ! -e "${SRC_DIR}/${FILE}" ] && \
+            ShowError "File \"${SRC_DIR}/${FILE}\" does not exist!"
+
+        ln -sf "${SRC_DIR}/${FILE}" "${DEST_DIR}/${FILE}"
+    fi
+done
+
+for DIR in ${SRC_DIRS}
+do
+    if [ ! -d "${DEST_DIR}/${DIR}" ]
+    then
+        [ -z "${SRC_DIR}" ] && FindSourceDirectory
+        [ -z "${SRC_DIR}" ] && ShowError
+
+        [ ! -d "${SRC_DIR}/${DIR}" ] && \
+            ShowError "Directory \"${SRC_DIR}/${DIR}\" does not exist!"
+
+        ln -sfT "${SRC_DIR}/${DIR}" "${DEST_DIR}/${DIR}"
+    fi
+done
+
+if ! which xdg-open > /dev/null
+then
+    ShowError "xdg-open is not installed!"
+fi
+
+# If all checks have been passed successfully:
+echo "Used configuration file:"
+echo "${DEST_DIR}/${CONFIG}"
+
+xdg-open "${DEST_DIR}/index.html"
+exit 0
+

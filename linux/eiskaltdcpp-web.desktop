@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=EiskaltDC++ Web UI
+Type=Application
+Exec=eiskaltdcpp-web %U
+Icon=eiskaltdcpp-web
+Terminal=false
+GenericName=Web UI for eiskaltdcpp-daemon
+Comment=Simple launcher of EiskaltDC++ Web UI
+Categories=Network;FileTransfer;P2P;Web;
+Keywords=FileSharing;p2p;DirectConnect;ADC;DHT;
