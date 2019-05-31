@@ -13,11 +13,7 @@ if (UNIX AND NOT APPLE AND NOT HAIKU)
 
     # Config
     install (FILES config.js
-             DESTINATION "${CMAKE_INSTALL_PREFIX}/etc"
-             RENAME ${PROJECT_NAME}.conf)
-    set (CONFIG_RELATIVE_PATH "../etc/${PROJECT_NAME}.conf")
-    set (CONFIG_SYMLINK "${CMAKE_INSTALL_PREFIX}/share/eiskaltdcpp/web/config.js")
-    install(CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${CONFIG_RELATIVE_PATH} ${CONFIG_SYMLINK})")
+             DESTINATION "${CMAKE_INSTALL_PREFIX}/share/eiskaltdcpp/web")
 
     # Web UI files and directories
     install (FILES index.html style.css favicon.ico
