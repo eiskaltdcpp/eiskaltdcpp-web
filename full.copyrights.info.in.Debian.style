@@ -6,7 +6,7 @@ Source: https://github.com/eiskaltdcpp/eiskaltdcpp-web
 
 Files: *
 Copyright: 2013 Dorian Scholz (https://github.com/DorianScholz)
-           2013-2017 Boris Pek <tehnick-8@yandex.ru>
+           2013-2019 Boris Pek <tehnick-8@yandex.ru>
 License: GPL-3+
 
 Files: images/*
@@ -91,7 +91,7 @@ License: Cyntax-Open-Technology-License
  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE. 
+ THE SOFTWARE.
 
 License: GPL-2
  This program is free software; you can redistribute it and/or modify
@@ -139,4 +139,3 @@ License: LGPL-3
  .
  On Debian systems, the complete text of the GNU Lesser General Public License
  can be found in `/usr/share/common-licenses/LGPL-3'.
-
