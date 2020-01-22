@@ -4,9 +4,9 @@
 /*global define */
 
 define(
-    ['jquery', 'app/eiskalt', 'config.js'],
+    ['jquery', 'app/eiskaltdcpp', 'config.js'],
 
-    function ($, eiskalt, config) {
+    function ($, eiskaltdcpp, config) {
         'use strict';
 
         var my = {
@@ -35,7 +35,7 @@ define(
             }
         };
 
-        eiskalt.debug = my;
+        eiskaltdcpp.debug = my;
         return my;
     }
 );

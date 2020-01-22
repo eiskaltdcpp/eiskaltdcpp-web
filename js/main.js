@@ -20,17 +20,17 @@ require.config({
 
 require(
     [
-        'app/eiskalt',
-        'app/eiskalt.debug',
-        'app/eiskalt.status',
-        'app/eiskalt.search',
-        'app/eiskalt.queue'
+        'app/eiskaltdcpp',
+        'app/eiskaltdcpp.debug',
+        'app/eiskaltdcpp.status',
+        'app/eiskaltdcpp.search',
+        'app/eiskaltdcpp.queue'
     ],
-    function (eiskalt) {
+    function (eiskaltdcpp) {
         'use strict';
-        eiskalt.onLoad();
-        eiskalt.status.onLoad();
-        eiskalt.search.onLoad();
-        eiskalt.queue.onLoad();
+        eiskaltdcpp.onLoad();
+        eiskaltdcpp.status.onLoad();
+        eiskaltdcpp.search.onLoad();
+        eiskaltdcpp.queue.onLoad();
     }
 );

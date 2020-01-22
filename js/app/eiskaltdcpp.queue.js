@@ -4,9 +4,9 @@
 /*global define */
 
 define(
-    ['jquery', 'app/eiskalt', 'app/eiskalt.debug', 'app/eiskalt.status', 'app/eiskalt.search', 'jquery.tablesorter', 'jquery.timer'],
+    ['jquery', 'app/eiskaltdcpp', 'app/eiskaltdcpp.debug', 'app/eiskaltdcpp.status', 'app/eiskaltdcpp.search', 'jquery.tablesorter', 'jquery.timer'],
 
-    function ($, eiskalt) {
+    function ($, eiskaltdcpp) {
         'use strict';
 
         var my = {
@@ -17,7 +17,7 @@ define(
             onRemoveClicked: function () {
                 $.jsonRPC.request('queue.remove', {
                     params : {'target': $(this).attr('target')},
-                    error : eiskalt.debug.onError
+                    error : eiskaltdcpp.debug.onError
                 });
                 my.downloadQueue[$(this).attr('target')].row.remove();
             },
@@ -51,7 +51,7 @@ define(
 
             updateDownloadQueue: function (data) {
                 var tth;
-                eiskalt.status.showConnectionStatus(false);
+                eiskaltdcpp.status.showConnectionStatus(false);
                 if (data.result !== null) {
                     $.each(data.result, function (target, entry) {
                         my.addDownloadQueue(entry);
@@ -64,13 +64,13 @@ define(
                         delete my.downloadQueue[target];
                         delete my.downloadQueueTTH[tth];
                     }
-                    eiskalt.search.updateSearchResultIcon(tth);
+                    eiskaltdcpp.search.updateSearchResultIcon(tth);
                 });
                 $('table#downloadqueue').trigger('update');
             },
 
             onDownloadQueueError: function (data) {
-                eiskalt.status.showConnectionStatus(true);
+                eiskaltdcpp.status.showConnectionStatus(true);
                 $.each(my.downloadQueue, function (target, entry) {
                     entry.row.remove();
                 });
@@ -102,7 +102,7 @@ define(
             }
         };
 
-        eiskalt.queue = my;
+        eiskaltdcpp.queue = my;
         return my;
     }
 );

@@ -4,9 +4,9 @@
 /*global define */
 
 define(
-    ['jquery', 'app/eiskalt', 'config.js', 'jquery.tablesorter', 'jquery.timer', 'jquery.easytabs', 'jquery.jsonrpc'],
+    ['jquery', 'app/eiskaltdcpp', 'config.js', 'jquery.tablesorter', 'jquery.timer', 'jquery.easytabs', 'jquery.jsonrpc'],
 
-    function ($, eiskalt, config) {
+    function ($, eiskaltdcpp, config) {
         'use strict';
 
         var my = {
@@ -122,7 +122,7 @@ define(
             }
         };
 
-        eiskalt.status = my;
+        eiskaltdcpp.status = my;
         return my;
     }
 );

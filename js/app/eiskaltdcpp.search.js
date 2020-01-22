@@ -5,9 +5,9 @@
 /*global define */
 
 define(
-    ['jquery', 'app/eiskalt', 'config.js', 'app/eiskalt.queue', 'app/eiskalt.debug', 'jquery.tablesorter', 'jquery.timer'],
+    ['jquery', 'app/eiskaltdcpp', 'config.js', 'app/eiskaltdcpp.queue', 'app/eiskaltdcpp.debug', 'jquery.tablesorter', 'jquery.timer'],
 
-    function ($, eiskalt, config) {
+    function ($, eiskaltdcpp, config) {
         'use strict';
 
         var my = {
@@ -29,7 +29,7 @@ define(
 
             clearSearchResults: function () {
                 $.jsonRPC.request('search.clear', {
-                    error : eiskalt.debug.onError
+                    error : eiskaltdcpp.debug.onError
                 });
                 $('table#searchresults tbody > tr').remove();
                 my.groupedResults = {};
@@ -40,10 +40,10 @@ define(
                 var downloadLink, removeLink;
                 downloadLink = $('#download_' + tth);
                 removeLink = $('#remove_' + tth);
-                if (eiskalt.queue.downloadQueueTTH.hasOwnProperty(tth)) {
+                if (eiskaltdcpp.queue.downloadQueueTTH.hasOwnProperty(tth)) {
                     downloadLink.hide();
                     removeLink.show();
-                    removeLink.attr('target', eiskalt.queue.downloadQueueTTH[tth].data.Target);
+                    removeLink.attr('target', eiskaltdcpp.queue.downloadQueueTTH[tth].data.Target);
                 } else {
                     downloadLink.show();
                     removeLink.hide();
@@ -90,7 +90,7 @@ define(
 
                     removeImage = $('<img src="images/remove.png">');
                     removeLink = $('<a id="remove_' + tth + '" target="">').append(removeImage);
-                    removeLink.on('click', eiskalt.queue.onRemoveClicked);
+                    removeLink.on('click', eiskaltdcpp.queue.onRemoveClicked);
                     removeLink.hide();
 
                     result.UserLink = my.getUserLink(result);
@@ -114,7 +114,7 @@ define(
 
             updateSearchResults: function (data) {
                 if (data.result === null) {
-                    eiskalt.debug.print(eiskalt.debug.levels.INFO, 'search results: ' + data.result);
+                    eiskaltdcpp.debug.print(eiskaltdcpp.debug.levels.INFO, 'search results: ' + data.result);
                 } else {
                     data.result.forEach(function (result) {
                         var resultId = result.CID + result.TTH;
@@ -130,13 +130,13 @@ define(
             requestSearchResults: function () {
                 $.jsonRPC.request('search.getresults', {
                     success : my.updateSearchResults,
-                    error : eiskalt.debug.onError
+                    error : eiskaltdcpp.debug.onError
                 });
             },
 
             onSearchSendSuccess: function (data) {
                 var searchIsValid = (data.result === 0);
-                eiskalt.debug.print(eiskalt.debug.levels.DEBUG, 'searchIsValid: ' + searchIsValid);
+                eiskaltdcpp.debug.print(eiskaltdcpp.debug.levels.DEBUG, 'searchIsValid: ' + searchIsValid);
                 if (searchIsValid) {
                     $('input#searchstring').timer('start');
                 }
@@ -151,7 +151,7 @@ define(
                         'searchtype': Number($('#searchtype option:selected').val())
                     },
                     success : my.onSearchSendSuccess,
-                    error : eiskalt.debug.onError
+                    error : eiskaltdcpp.debug.onError
                 });
             },
 
@@ -164,7 +164,7 @@ define(
                         'tth': $(this).attr('tth'),
                         'directory': ''
                     },
-                    error : eiskalt.debug.onError
+                    error : eiskaltdcpp.debug.onError
                 });
                 // start TTH search for the newly added file to get download sources
                 $('input#searchstring').timer('stop');
@@ -173,7 +173,7 @@ define(
                         'searchstring': $(this).attr('tth'),
                         'searchtype': Number(my.searchTypes.TTH)
                     },
-                    error : eiskalt.debug.onError
+                    error : eiskaltdcpp.debug.onError
                 });
             },
 
@@ -211,7 +211,7 @@ define(
                     autostart: false
                 });
 
-                searchType = eiskalt.getURLParameter('searchtype');
+                searchType = eiskaltdcpp.getURLParameter('searchtype');
                 if (searchType !== null) {
                     $.each(my.searchTypes, function (typename, typeval) {
                         if (typename.toLowerCase() === String(searchType).toLowerCase()) {
@@ -221,7 +221,7 @@ define(
                     });
                 }
 
-                searchString = eiskalt.getURLParameter('searchstring');
+                searchString = eiskaltdcpp.getURLParameter('searchstring');
                 if (searchString !== null) {
                     $('#tab-container').easytabs('select', '#tab-search');
                     $('input#searchstring').val(searchString);
@@ -230,7 +230,7 @@ define(
             }
         };
 
-        eiskalt.search = my;
+        eiskaltdcpp.search = my;
         return my;
     }
 );
