@@ -44,6 +44,8 @@ For MS Windows users it is enough to read [help](https://github.com/eiskaltdcpp/
 
 ## Versions history
 
+* 1.0.1 (2020-xx-xx):
+  * Fix desktop file for Linux.
 * 1.0 (2019-06-01):
   * First stable release.
   * Compatible with eiskaltdcpp-daemon 2.4.0.
