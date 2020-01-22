@@ -6,5 +6,5 @@ Icon=eiskaltdcpp-web
 Terminal=false
 GenericName=Web UI for eiskaltdcpp-daemon
 Comment=Simple launcher of EiskaltDC++ Web UI
-Categories=Network;FileTransfer;P2P;Web;
+Categories=Network;FileTransfer;P2P;
 Keywords=FileSharing;p2p;DirectConnect;ADC;DHT;
