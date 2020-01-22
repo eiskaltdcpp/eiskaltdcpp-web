@@ -44,7 +44,7 @@ For MS Windows users it is enough to read [help](https://github.com/eiskaltdcpp/
 
 ## Versions history
 
-* 1.0.1 (2020-xx-xx):
+* 1.0.1 (2020-01-22):
   * Fix desktop file for Linux.
   * Add manual page for eiskaltdcpp-web script in Linux.
   * Updated embedded copies of javascript libraries: jquery-3.4.1, tablesorter-2.31.2, requirejs-2.3.6.
